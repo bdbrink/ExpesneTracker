@@ -15,7 +15,7 @@ while True:
 
     if choice == 1:
         date = input("Enter the date of the expense (YYYY-MM-DD): ")
-        date = input("Enter the description: ")
+        description = input("Enter the description: ")
 
         cur.execute("SELECT DISTINCT category FROM expenses")
 
@@ -33,7 +33,6 @@ while True:
             category = categories[category_choice - 1][0]
 
         price = input("enter price for expense: ")
-        
         cur.execute("INSERT INTO expenses (Date, description, category, price) VALUES (?, ?, ?, ?)", (date, description, category, price))
 
         conn.commit()
