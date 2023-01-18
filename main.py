@@ -57,7 +57,7 @@ def track_expenses(conn, cur):
                             WHERE strftime('%m', Date) = ? AND strftime('%Y', Date) = ?
                             GROUP BY category""", (month, year))
                 expenses = cur.fetchall()
-
+                ## seems to be broken right now, can't iterate through an object
                 for expense in expenses:
                     print(f"Category: {expense[0]}, Total: {expense[1]}")
             else:
